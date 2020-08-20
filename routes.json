@@ -43,7 +43,7 @@
       "serve": "/error.html"
     },
     {
-      "errorType": "Unauthorized",
+      "errorType": "Unauthorized_MissingRoles",
       "statusCode": "404",
       "serve": "/error.html"
     },
