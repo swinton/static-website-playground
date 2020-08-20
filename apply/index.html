@@ -1,0 +1,46 @@
+<!--https://docs.microsoft.com/en-us/azure/static-web-apps/user-information-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="octocat">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>apply</title>
+</head>
+
+<body>
+  <div id="content" class="container">
+    thanks for joining the program.
+  </div>
+  <script>
+      (function () {
+          document.addEventListener("DOMContentLoaded", async function (event) {
+            async function getUserInfo() {
+              const response = await fetch("/.auth/me");
+              const payload = await response.json();
+              const { clientPrincipal } = payload;
+              return clientPrincipal;
+            }
+
+            const userInfo = await getUserInfo();
+            window.userInfo = userInfo;
+            let message = `thanks for joining the program, @${userInfo.userDetails}.`;
+            if (userInfo.userRoles.includes("advanced")) {
+              // advanced
+              message += ' <a href="/advanced" exciting content awaits</a>!';
+            } else if (userInfo.userRoles.includes("select")) {
+              // select
+              message += ' <a href="/content" exciting content awaits</a>!';
+            } else {
+              message += ' thanks for your patience as we review your application.';
+            }
+            console.log(userInfo);
+            document.getElementById("content").innerText = message;
+          });
+      })();
+  </script>
+</body>
+</html>

@@ -9,8 +9,12 @@
       "serve": "/.auth/logout"
     },
     {
-      "route": "/content/*",
+      "route": "/apply/*",
       "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/content/*",
+      "allowedRoles": ["select","advanced"]
     },
     {
       "route": "/advanced/*",
@@ -36,6 +40,11 @@
   "platformErrorOverrides": [
     {
       "errorType": "NotFound",
+      "serve": "/error.html"
+    },
+    {
+      "errorType": "Unauthorized_MissingRoles",
+      "statusCode": "404",
       "serve": "/error.html"
     },
     {
