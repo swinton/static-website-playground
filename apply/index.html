@@ -30,10 +30,10 @@
             let message = `thanks for joining the program, @${userInfo.userDetails}.`;
             if (userInfo.userRoles.includes("advanced")) {
               // advanced
-              message += ' <a href="/advanced" exciting content awaits</a>!';
+              message += ' <a href="/advanced"> exciting content awaits</a>!';
             } else if (userInfo.userRoles.includes("select")) {
               // select
-              message += ' <a href="/content" exciting content awaits</a>!';
+              message += ' <a href="/content"> exciting content awaits</a>!';
             } else {
               message += ' thanks for your patience as we review your application.';
             }
