@@ -13,6 +13,10 @@
       "allowedRoles": ["authenticated"]
     },
     {
+      "route": "/content/*",
+      "allowedRoles": ["select","advanced"]
+    },
+    {
       "route": "/advanced/*",
       "allowedRoles": ["advanced"]
     },
