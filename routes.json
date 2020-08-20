@@ -43,6 +43,11 @@
       "serve": "/error.html"
     },
     {
+      "errorType": "Unauthorized",
+      "statusCode": "404",
+      "serve": "/error.html"
+    },
+    {
       "errorType": "Unauthenticated",
       "statusCode": "302",
       "serve": "/login"
