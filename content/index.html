@@ -74,6 +74,7 @@
             const userInfo = await getUserInfo();
 
             console.log(userInfo);
+            document.getElementById("content").innerText = `Welcome, @${userInfo.userDetails}`;
           });
       })();
   </script>
