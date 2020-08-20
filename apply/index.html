@@ -1,0 +1,62 @@
+<!--https://docs.microsoft.com/en-us/azure/static-web-apps/user-information-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="octocat">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>apply</title>
+    <style>
+        html {
+            height: 100%;
+        }
+        body {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            background-color: #000;
+            margin: 0px;
+        }
+        .container {
+            font-family: monospace;
+            color: #fff;
+            background-color: #000;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25%;
+        }
+        footer.footer {
+            grid-row-start: 2;
+            grid-row-end: 3;
+            background-color: #fff;
+            color: #000;
+            text-align: center;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="content" class="container">
+    thanks for joining the program.
+  </div>
+  <script>
+      (function () {
+          document.addEventListener("DOMContentLoaded", async function (event) {
+            async function getUserInfo() {
+              const response = await fetch("/.auth/me");
+              const payload = await response.json();
+              const { clientPrincipal } = payload;
+              return clientPrincipal;
+            }
+
+            const userInfo = await getUserInfo();
+
+            console.log(userInfo);
+            document.getElementById("content").innerText = `thanks for joining the program, @${userInfo.userDetails}.`;
+          });
+      })();
+  </script>
+</body>
+</html>
