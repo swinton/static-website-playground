@@ -26,9 +26,19 @@
             }
 
             const userInfo = await getUserInfo();
-
+            window.userInfo = userInfo;
+            let message = `thanks for joining the program, @${userInfo.userDetails}.`;
+            if (userInfo.userRoles.includes("advanced")) {
+              // advanced
+              message += ' <a href="/advanced" exciting content awaits</a>!';
+            } else if (userInfo.userRoles.includes("select")) {
+              // select
+              message += ' <a href="/content" exciting content awaits</a>!';
+            } else {
+              message += ' thanks for your patience as we review your application.';
+            }
             console.log(userInfo);
-            document.getElementById("content").innerText = `thanks for joining the program, @${userInfo.userDetails}.`;
+            document.getElementById("content").innerText = message;
           });
       })();
   </script>
