@@ -37,6 +37,11 @@
     {
       "errorType": "NotFound",
       "serve": "/error.html"
+    },
+    {
+      "errorType": "Unauthenticated",
+      "statusCode": "302",
+      "serve": "/login"
     }
   ]
 }
