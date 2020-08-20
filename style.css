@@ -8,6 +8,7 @@ body {
   margin: 0px;
 }
 .container {
+  font-size: 800%;
   font-family: monospace;
   color: #fff;
   background-color: #000;
