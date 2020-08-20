@@ -32,5 +32,11 @@
       "route": "/.auth/login/twitter",
       "statusCode": "404"
     }
+  ],
+  "platformErrorOverrides": [
+    {
+      "errorType": "NotFound",
+      "serve": "/error.html"
+    }
   ]
 }
